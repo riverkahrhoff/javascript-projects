@@ -29,6 +29,20 @@ console.log("Hold status: " + holdStatus(cargoHold));
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
+let dontLook = function(fuelLevel){
+ let takeFuel;
+ if (fuelLevel > 100000) {
+  takeFuel = fuelLevel - 100001
+ } else if (fuelLevel > 50000) {
+  takeFuel = fuelLevel - 50001
+ } else {
+  takeFuel = fuelLevel
+ }
+ return takeFuel;
+};
+
+
+
 //b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
 
 //c). Once you figure out how much fuel to pump out, return that value.
@@ -39,6 +53,17 @@ console.log("Hold status: " + holdStatus(cargoHold));
  */
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
+
+let secretFunction = function(arr) {
+  let stash = [];
+  let takeOne = arr.pop()
+  stash.push(takeOne)
+  let takeTwo = arr.pop()
+  stash.push(takeTwo)
+  arr.push(takeOne + ".fake", takeTwo + ".fake")
+  return stash
+}
+
 
 //b). You need to swipe two items from the cargo hold. Choose well. Stealing water ain’t gonna get us rich. Put the swag into a new array and return it from the function.
 
@@ -51,6 +76,13 @@ console.log("Hold status: " + holdStatus(cargoHold));
  
 //a). Define a function called irs that can take fuelLevel and cargoHold as arguments.
 	
+function irs(fuelLevel, cargoHold) {
+  let raidedFuel = dontLook(fuelLevel)
+  let raidedSupplies = secretFunction(cargoHold)
+  return console.log(`Raided ${raidedFuel} kg of fuel from the tanks, and stole ${raidedSupplies[0]} and ${raidedSupplies[1]} from the cargo hold.`)
+}
+
+irs(fuelLevel, cargoHold)
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
