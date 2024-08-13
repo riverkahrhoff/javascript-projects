@@ -9,13 +9,11 @@
               // Access the JSON in the response
               response.json().then( function(json) {
                 const div = document.getElementById('weather-conditions');
-                div.innerHTML = `
-                  <ul>
-                    <li>Temp ${json.temp}</li>
-                    <li>Wind Speed ${json.windSpeed}</li>
-                    <li>Status ${json.status}</li>
-                    <li>Chance of Precip ${json.chanceOfPrecipitation}</li>
-                  </ul>
+                div.innerHTML += `
+                 <div class="astronaut">
+    <div class="bio">
+        <h3>${json[i].firstName}</h3>
+</div>
                 `;
               });
           });
